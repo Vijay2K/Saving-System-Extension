@@ -9,7 +9,22 @@ namespace Extension.SavingSystem
 {
     public class SavingSystem : MonoBehaviour
     {
+        public static SavingSystem Instance { get; private set; }
+
         private const string lastSceneIndexId = "lastSceneIndex";
+
+        private void Awake() 
+        {
+            if(Instance != null)
+            {
+                Debug.LogError($"More than one instance for {this}");
+                Destroy(gameObject);
+                return;
+            }
+
+            Instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
 
         public void Save(string fileName)
         {
