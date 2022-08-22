@@ -1,7 +1,7 @@
 {
-  "name": "com.vijay.saving-system-extension",
+  "name": "com.vijay.saving-system",
   "version": "1.0.0",
-  "displayName": "Saving system extension",
+  "displayName": "Saving system",
   "description": "This extension will help you to save a bunch of complex game data as binary format and load it back.",
   "Unity": "2019.4",
   "dependencies": {},
