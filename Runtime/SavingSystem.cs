@@ -28,12 +28,22 @@ namespace Extension.SavingSystem
 
         public void Save()
         {
+            Save(fileName);
+        }
+
+        public void Load()
+        {
+            Load(fileName);
+        }
+
+        private void Save(string fileName)
+        {
             Dictionary<string, object> state = LoadFile(fileName);
             CaptureState(state);
             SaveFile(fileName, state);
         }
 
-        public void Load()
+        private void Load(string fileName)
         {
             RestoreState(LoadFile(fileName));
         }
@@ -101,6 +111,11 @@ namespace Extension.SavingSystem
                     saveableEntity.RestoreState(state[id]);
                 }
             }
+        }
+
+        public string GetFilePath()
+        {
+            return GetFilePath(fileName);
         }
 
         private string GetFilePath(string fileName)
