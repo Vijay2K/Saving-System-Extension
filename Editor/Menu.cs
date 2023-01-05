@@ -16,6 +16,6 @@ public static class Menu
 
     private static string GetPath()
     {
-        return Path.Combine(Application.persistentDataPath, "GameData.sav"); 
+        return Path.Combine(Application.persistentDataPath, "SaveData.sav"); 
     }
 }
