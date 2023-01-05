@@ -12,6 +12,7 @@ namespace Extension.SavingSystem
         public static SavingSystem Instance { get; private set; }
 
         private const string lastSceneIndexId = "lastSceneIndex";
+        private const string fileName = "GameData";
 
         private void Awake() 
         {
@@ -23,17 +24,16 @@ namespace Extension.SavingSystem
             }
 
             Instance = this;
-            DontDestroyOnLoad(this.gameObject);
         }
 
-        public void Save(string fileName)
+        public void Save()
         {
             Dictionary<string, object> state = LoadFile(fileName);
             CaptureState(state);
             SaveFile(fileName, state);
         }
 
-        public void Load(string fileName)
+        public void Load()
         {
             RestoreState(LoadFile(fileName));
         }
